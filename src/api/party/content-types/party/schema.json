@@ -4,15 +4,19 @@
   "info": {
     "singularName": "party",
     "pluralName": "parties",
-    "displayName": "party"
+    "displayName": "party",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "ID_LOCAL": {
-      "type": "uid"
+    "UID": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::party.party",
+      "inversedBy": "COMPANY"
     },
     "NAME": {
       "type": "string"
@@ -65,6 +69,21 @@
       ]
     },
     "PAYMENT_TERMS": {
+      "type": "integer"
+    },
+    "PRIMARY_EMAIL": {
+      "type": "email"
+    },
+    "BILLING_STATE": {
+      "type": "string"
+    },
+    "COMPANY": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::party.party",
+      "inversedBy": "UID"
+    },
+    "FOLLOW_UP_EMAIL_FREQ": {
       "type": "integer"
     }
   }

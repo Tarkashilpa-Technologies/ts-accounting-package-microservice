@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sales",
+  "info": {
+    "singularName": "sale",
+    "pluralName": "sales",
+    "displayName": "Sale"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PROJECT": {
+      "type": "string"
+    },
+    "STATUS_OF_PROJECT": {
+      "type": "enumeration",
+      "enum": [
+        "UPCOMING",
+        "COMPLETED"
+      ]
+    },
+    "EXPECTED_COMPLETION_DATE": {
+      "type": "date"
+    },
+    "MONTH_OF_SALE": {
+      "type": "date"
+    },
+    "DESCRIPTION": {
+      "type": "string"
+    },
+    "AMOUNT": {
+      "type": "decimal"
+    }
+  }
+}
