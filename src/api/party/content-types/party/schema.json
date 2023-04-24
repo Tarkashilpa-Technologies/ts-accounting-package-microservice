@@ -85,6 +85,11 @@
     },
     "FOLLOW_UP_EMAIL_FREQ": {
       "type": "integer"
+    },
+    "party_emails": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::party-email.party-email"
     }
   }
 }
