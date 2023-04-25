@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "UID": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::party.party",
-      "inversedBy": "COMPANY"
-    },
     "NAME": {
       "type": "string"
     },
@@ -60,14 +54,6 @@
     "TS_GIVES_TDS": {
       "type": "boolean"
     },
-    "PROFILES": {
-      "type": "enumeration",
-      "enum": [
-        "CLIENT",
-        "VENDOR",
-        "EMPLOYEE"
-      ]
-    },
     "PAYMENT_TERMS": {
       "type": "integer"
     },
@@ -77,12 +63,6 @@
     "BILLING_STATE": {
       "type": "string"
     },
-    "COMPANY": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::party.party",
-      "inversedBy": "UID"
-    },
     "FOLLOW_UP_EMAIL_FREQ": {
       "type": "integer"
     },
@@ -90,6 +70,16 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::party-email.party-email"
+    },
+    "party_profiles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::party-profile.party-profile"
+    },
+    "companies": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::party.party"
     }
   }
 }

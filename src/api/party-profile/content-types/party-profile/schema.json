@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "party_profiles",
+  "info": {
+    "singularName": "party-profile",
+    "pluralName": "party-profiles",
+    "displayName": "PARTY_PROFILE"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "PROFILES": {
+      "type": "string"
+    }
+  }
+}
