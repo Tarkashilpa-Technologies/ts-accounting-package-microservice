@@ -4,7 +4,8 @@
   "info": {
     "singularName": "sale",
     "pluralName": "sales",
-    "displayName": "Sale"
+    "displayName": "Sale",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -32,6 +33,11 @@
     },
     "AMOUNT": {
       "type": "decimal"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
     }
   }
 }
