@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "singularName": "transaction",
+    "pluralName": "transactions",
+    "displayName": "TRANSACTION"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "invoices": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::invoice.invoice",
+      "inversedBy": "transactions"
+    },
+    "AMOUNT_RECIEVED": {
+      "type": "decimal"
+    },
+    "DATE_RECEIVED": {
+      "type": "datetime"
+    },
+    "MODE_OF_PAYMENT": {
+      "type": "enumeration",
+      "enum": [
+        "BANK_TRANSFER",
+        "UPI",
+        "CHEQUE",
+        "CASH"
+      ]
+    }
+  }
+}

@@ -80,6 +80,18 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::party.party"
+    },
+    "invoices": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::invoice.invoice",
+      "mappedBy": "sales"
+    },
+    "expenses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::expense.expense",
+      "mappedBy": "RECEIVING_PARTY"
     }
   }
 }

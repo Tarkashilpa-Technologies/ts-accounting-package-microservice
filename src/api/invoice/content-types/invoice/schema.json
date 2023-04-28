@@ -1,0 +1,118 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoices",
+  "info": {
+    "singularName": "invoice",
+    "pluralName": "invoices",
+    "displayName": "INVOICE"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "STATUS": {
+      "type": "enumeration",
+      "enum": [
+        "RAISED",
+        "PARTIALLY PAID",
+        "CANCELLED",
+        "PAID"
+      ]
+    },
+    "TYPE": {
+      "type": "enumeration",
+      "enum": [
+        "TAX",
+        "PROFORMA"
+      ]
+    },
+    "INVOICE_NUMBER": {
+      "type": "string"
+    },
+    "CLIENT_BILLING_ADDRESS": {
+      "type": "text"
+    },
+    "CLIENT_BILLING_CITY": {
+      "type": "string"
+    },
+    "CLIENT_BILLING_STATE": {
+      "type": "string"
+    },
+    "CLIENT_BILLING_COUNTRY": {
+      "type": "string"
+    },
+    "CLIENT_GST_NUMBER": {
+      "type": "string"
+    },
+    "TS_ADDRESS": {
+      "type": "text"
+    },
+    "TS_CITY": {
+      "type": "string"
+    },
+    "TS_STATE": {
+      "type": "string"
+    },
+    "TS_COUNTRY": {
+      "type": "string"
+    },
+    "TS_PINCODE": {
+      "type": "string"
+    },
+    "IF_APPLY_GST": {
+      "type": "boolean"
+    },
+    "IGST": {
+      "type": "decimal"
+    },
+    "CGST": {
+      "type": "decimal"
+    },
+    "SGST": {
+      "type": "decimal"
+    },
+    "GRAND_TOTAL": {
+      "type": "decimal"
+    },
+    "CLIENT_DEDUCT_GST": {
+      "type": "boolean"
+    },
+    "TDS": {
+      "type": "decimal"
+    },
+    "INVOICE_DATE": {
+      "type": "datetime"
+    },
+    "DUE_DATE": {
+      "type": "datetime"
+    },
+    "sales": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::party.party",
+      "inversedBy": "invoices"
+    },
+    "PENDING_PAYMENT": {
+      "type": "decimal"
+    },
+    "FOLLOW_UP_EMAIL_FREQ": {
+      "type": "integer"
+    },
+    "INVOICE_TEMPLATE": {
+      "type": "string"
+    },
+    "expenses": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::expense.expense",
+      "mappedBy": "invoices"
+    },
+    "transactions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::transaction.transaction",
+      "mappedBy": "invoices"
+    }
+  }
+}

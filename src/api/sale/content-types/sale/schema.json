@@ -38,6 +38,12 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::service.service"
+    },
+    "recursive_sales": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::recursive-sale.recursive-sale",
+      "mappedBy": "SALES_REF"
     }
   }
 }

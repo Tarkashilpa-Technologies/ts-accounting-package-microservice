@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recursive_sales",
+  "info": {
+    "singularName": "recursive-sale",
+    "pluralName": "recursive-sales",
+    "displayName": "RECURSIVE_SALE"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "RECURRING_FREQUENCY": {
+      "type": "enumeration",
+      "enum": [
+        "WEEKLY",
+        "MONTHLY",
+        "QUATERLY",
+        "YEARLY"
+      ]
+    },
+    "EXPECTED_SALE_COMPLETION_DATE": {
+      "type": "date"
+    },
+    "MONTH_OF_SALE_DONE": {
+      "type": "date"
+    },
+    "NUMBER_OF_RECURRENCES": {
+      "type": "integer"
+    },
+    "DESCRIPTION": {
+      "type": "text"
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service"
+    },
+    "AMOUNT_WITHOUT_TAXES": {
+      "type": "decimal"
+    },
+    "SALES_REF": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::sale.sale",
+      "inversedBy": "recursive_sales"
+    }
+  }
+}

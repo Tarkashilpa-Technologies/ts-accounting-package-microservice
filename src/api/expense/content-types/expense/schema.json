@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "expenses",
+  "info": {
+    "singularName": "expense",
+    "pluralName": "expenses",
+    "displayName": "EXPENSE"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "RECEIVING_PARTY": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::party.party",
+      "inversedBy": "expenses"
+    },
+    "PURCHASE_STATUS": {
+      "type": "enumeration",
+      "enum": [
+        "UPCOMING",
+        "DONE"
+      ]
+    },
+    "EXPECTED_COMPLETION_DATE": {
+      "type": "date"
+    },
+    "PAYMENT_STATUS": {
+      "type": "enumeration",
+      "enum": [
+        "UNPAID",
+        "PARTIALLY_PAID",
+        "PAID"
+      ]
+    },
+    "MONTH_OF_EXPENSE": {
+      "type": "date"
+    },
+    "DESCRIPTION": {
+      "type": "text"
+    },
+    "AMOUNT": {
+      "type": "decimal"
+    },
+    "invoices": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::invoice.invoice",
+      "inversedBy": "expenses"
+    },
+    "IF_PAY_GST": {
+      "type": "boolean"
+    },
+    "IGST": {
+      "type": "decimal"
+    },
+    "CGST": {
+      "type": "decimal"
+    },
+    "SGST": {
+      "type": "decimal"
+    },
+    "GRAND_TOTAL": {
+      "type": "decimal"
+    },
+    "CLIENT_DEDUCT_GST": {
+      "type": "boolean"
+    },
+    "TDS": {
+      "type": "decimal"
+    },
+    "EXPENSE_DATE": {
+      "type": "date"
+    },
+    "DUE_DATE": {
+      "type": "datetime"
+    }
+  }
+}
