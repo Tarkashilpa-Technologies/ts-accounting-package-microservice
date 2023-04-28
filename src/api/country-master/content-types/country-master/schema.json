@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "country_masters",
+  "info": {
+    "singularName": "country-master",
+    "pluralName": "country-masters",
+    "displayName": "COUNTRY_MASTER"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "countryCode": {
+      "type": "string"
+    },
+    "countryName": {
+      "type": "string"
+    }
+  }
+}
