@@ -78,8 +78,15 @@
     },
     "companies": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::party.party"
+      "relation": "manyToMany",
+      "target": "api::party.party",
+      "inversedBy": "indviduals"
+    },
+    "indviduals": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::party.party",
+      "inversedBy": "companies"
     },
     "invoices": {
       "type": "relation",
