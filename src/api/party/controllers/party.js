@@ -49,4 +49,45 @@ module.exports = createCoreController("api::party.party", ({ strapi }) => ({
     const sanitizedResults = await this.sanitizeOutput(results, ctx);
     return this.transformResponse(sanitizedResults);
   },
+  async update(ctx) {
+    const { id } = ctx.params;
+    const { data } = parseMultipartData(ctx);
+    let tempData = { ...data?.data };
+    let isNotexistEmails = [];
+    let ids = [];
+    await Promise.all(
+      data.data["party_emails"].map(async (ele, ItemIndex) => {
+        let email = await strapi.db
+          .query("api::party-email.party-email")
+          .findOne({
+            where: {
+              EMAIL: ele,
+            },
+          });
+        if (email) {
+          ids.push(email.id);
+        } else {
+          isNotexistEmails.push(ele);
+        }
+        return email;
+      })
+    );
+    let allEmails = await Promise.all(
+      isNotexistEmails.map(async (ele) => {
+        const emails = await strapi
+          .service("api::party-email.party-email")
+          .create({
+            data: { EMAIL: ele },
+          });
+        return emails;
+      })
+    );
+    allEmails.forEach((ele) => {
+      ids.push(ele.id);
+    });
+    tempData["party_emails"] = ids;
+    const results = await strapi.services["api::party.party"].update(id, {data:tempData});
+    const sanitizedResults = await this.sanitizeOutput(results, ctx);
+    return this.transformResponse(sanitizedResults);
+  },
 }));
