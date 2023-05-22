@@ -4,7 +4,8 @@
   "info": {
     "singularName": "recursive-sale",
     "pluralName": "recursive-sales",
-    "displayName": "RECURSIVE_SALE"
+    "displayName": "RECURSIVE_SALE",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -45,6 +46,9 @@
       "relation": "manyToMany",
       "target": "api::sale.sale",
       "inversedBy": "recursive_sales"
+    },
+    "PROJECT": {
+      "type": "string"
     }
   }
 }
