@@ -87,12 +87,6 @@
     "DUE_DATE": {
       "type": "datetime"
     },
-    "sales": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::party.party",
-      "inversedBy": "invoices"
-    },
     "PENDING_PAYMENT": {
       "type": "decimal"
     },
@@ -113,6 +107,11 @@
       "relation": "manyToMany",
       "target": "api::transaction.transaction",
       "mappedBy": "invoices"
+    },
+    "sales": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sale.sale"
     }
   }
 }

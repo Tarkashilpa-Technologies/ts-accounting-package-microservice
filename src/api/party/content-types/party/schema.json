@@ -88,12 +88,6 @@
       "target": "api::party.party",
       "inversedBy": "companies"
     },
-    "invoices": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::invoice.invoice",
-      "mappedBy": "sales"
-    },
     "expenses": {
       "type": "relation",
       "relation": "oneToMany",
