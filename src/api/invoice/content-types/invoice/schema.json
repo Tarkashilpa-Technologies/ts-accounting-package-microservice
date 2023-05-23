@@ -4,7 +4,8 @@
   "info": {
     "singularName": "invoice",
     "pluralName": "invoices",
-    "displayName": "INVOICE"
+    "displayName": "INVOICE",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -90,7 +91,7 @@
     "sales": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::party.party",
+      "target": "api::sale.sale",
       "inversedBy": "invoices"
     },
     "PENDING_PAYMENT": {

@@ -44,6 +44,12 @@
       "relation": "manyToMany",
       "target": "api::recursive-sale.recursive-sale",
       "mappedBy": "SALES_REF"
+    },
+    "invoices": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::invoice.invoice",
+      "mappedBy": "sales"
     }
   }
 }
