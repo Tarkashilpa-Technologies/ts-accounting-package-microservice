@@ -41,14 +41,14 @@
     "AMOUNT_WITHOUT_TAXES": {
       "type": "decimal"
     },
-    "SALES_REF": {
+    "PROJECT": {
+      "type": "string"
+    },
+    "sales": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::sale.sale",
       "inversedBy": "recursive_sales"
-    },
-    "PROJECT": {
-      "type": "string"
     }
   }
 }

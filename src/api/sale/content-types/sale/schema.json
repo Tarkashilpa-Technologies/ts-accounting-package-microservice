@@ -8,7 +8,7 @@
     "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -43,7 +43,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::recursive-sale.recursive-sale",
-      "mappedBy": "SALES_REF"
+      "mappedBy": "sales"
     }
   }
 }
