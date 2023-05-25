@@ -4,7 +4,8 @@
   "info": {
     "singularName": "invoice",
     "pluralName": "invoices",
-    "displayName": "INVOICE"
+    "displayName": "INVOICE",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -112,6 +113,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::sale.sale"
+    },
+    "invoice_template": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::invoice-template.invoice-template"
     }
   }
 }

@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoice_templates",
+  "info": {
+    "singularName": "invoice-template",
+    "pluralName": "invoice-templates",
+    "displayName": "INVOICE_TEMPLATE"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "NAME": {
+      "type": "string"
+    },
+    "URL": {
+      "type": "string"
+    }
+  }
+}
