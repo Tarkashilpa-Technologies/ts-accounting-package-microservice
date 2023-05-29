@@ -94,9 +94,6 @@
     "FOLLOW_UP_EMAIL_FREQ": {
       "type": "integer"
     },
-    "INVOICE_TEMPLATE": {
-      "type": "string"
-    },
     "expenses": {
       "type": "relation",
       "relation": "manyToMany",

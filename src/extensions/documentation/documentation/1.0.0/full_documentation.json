@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-05-25T08:41:39.972Z"
+    "x-generation-date": "2023-05-26T04:39:24.066Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1447,10 +1447,6 @@
                 "type": "string",
                 "format": "date-time"
               },
-              "publishedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
               "createdBy": {
                 "type": "object",
                 "properties": {
@@ -1763,10 +1759,6 @@
                 "format": "date-time"
               },
               "updatedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -2118,10 +2110,6 @@
                 "type": "string",
                 "format": "date-time"
               },
-              "publishedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
               "createdBy": {
                 "type": "object",
                 "properties": {
@@ -2434,10 +2422,6 @@
                 "format": "date-time"
               },
               "updatedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -3528,9 +3512,6 @@
                                                       "FOLLOW_UP_EMAIL_FREQ": {
                                                         "type": "integer"
                                                       },
-                                                      "INVOICE_TEMPLATE": {
-                                                        "type": "string"
-                                                      },
                                                       "expenses": {
                                                         "type": "object",
                                                         "properties": {
@@ -3825,7 +3806,10 @@
                                                                                     "type": "number",
                                                                                     "format": "float"
                                                                                   },
-                                                                                  "SALES_REF": {
+                                                                                  "PROJECT": {
+                                                                                    "type": "string"
+                                                                                  },
+                                                                                  "sales": {
                                                                                     "type": "object",
                                                                                     "properties": {
                                                                                       "data": {
@@ -3844,9 +3828,6 @@
                                                                                         }
                                                                                       }
                                                                                     }
-                                                                                  },
-                                                                                  "PROJECT": {
-                                                                                    "type": "string"
                                                                                   },
                                                                                   "createdAt": {
                                                                                     "type": "string",
@@ -3906,10 +3887,6 @@
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
-                                                                      "type": "string",
-                                                                      "format": "date-time"
-                                                                    },
-                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -5035,9 +5012,6 @@
                                                       "FOLLOW_UP_EMAIL_FREQ": {
                                                         "type": "integer"
                                                       },
-                                                      "INVOICE_TEMPLATE": {
-                                                        "type": "string"
-                                                      },
                                                       "expenses": {
                                                         "type": "object",
                                                         "properties": {
@@ -5332,7 +5306,10 @@
                                                                                     "type": "number",
                                                                                     "format": "float"
                                                                                   },
-                                                                                  "SALES_REF": {
+                                                                                  "PROJECT": {
+                                                                                    "type": "string"
+                                                                                  },
+                                                                                  "sales": {
                                                                                     "type": "object",
                                                                                     "properties": {
                                                                                       "data": {
@@ -5351,9 +5328,6 @@
                                                                                         }
                                                                                       }
                                                                                     }
-                                                                                  },
-                                                                                  "PROJECT": {
-                                                                                    "type": "string"
                                                                                   },
                                                                                   "createdAt": {
                                                                                     "type": "string",
@@ -5413,10 +5387,6 @@
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
-                                                                      "type": "string",
-                                                                      "format": "date-time"
-                                                                    },
-                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -6575,9 +6545,6 @@
                                                       "FOLLOW_UP_EMAIL_FREQ": {
                                                         "type": "integer"
                                                       },
-                                                      "INVOICE_TEMPLATE": {
-                                                        "type": "string"
-                                                      },
                                                       "expenses": {
                                                         "type": "object",
                                                         "properties": {
@@ -6872,7 +6839,10 @@
                                                                                     "type": "number",
                                                                                     "format": "float"
                                                                                   },
-                                                                                  "SALES_REF": {
+                                                                                  "PROJECT": {
+                                                                                    "type": "string"
+                                                                                  },
+                                                                                  "sales": {
                                                                                     "type": "object",
                                                                                     "properties": {
                                                                                       "data": {
@@ -6891,9 +6861,6 @@
                                                                                         }
                                                                                       }
                                                                                     }
-                                                                                  },
-                                                                                  "PROJECT": {
-                                                                                    "type": "string"
                                                                                   },
                                                                                   "createdAt": {
                                                                                     "type": "string",
@@ -6953,10 +6920,6 @@
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
-                                                                      "type": "string",
-                                                                      "format": "date-time"
-                                                                    },
-                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -8082,9 +8045,6 @@
                                                       "FOLLOW_UP_EMAIL_FREQ": {
                                                         "type": "integer"
                                                       },
-                                                      "INVOICE_TEMPLATE": {
-                                                        "type": "string"
-                                                      },
                                                       "expenses": {
                                                         "type": "object",
                                                         "properties": {
@@ -8379,7 +8339,10 @@
                                                                                     "type": "number",
                                                                                     "format": "float"
                                                                                   },
-                                                                                  "SALES_REF": {
+                                                                                  "PROJECT": {
+                                                                                    "type": "string"
+                                                                                  },
+                                                                                  "sales": {
                                                                                     "type": "object",
                                                                                     "properties": {
                                                                                       "data": {
@@ -8398,9 +8361,6 @@
                                                                                         }
                                                                                       }
                                                                                     }
-                                                                                  },
-                                                                                  "PROJECT": {
-                                                                                    "type": "string"
                                                                                   },
                                                                                   "createdAt": {
                                                                                     "type": "string",
@@ -8460,10 +8420,6 @@
                                                                       "format": "date-time"
                                                                     },
                                                                     "updatedAt": {
-                                                                      "type": "string",
-                                                                      "format": "date-time"
-                                                                    },
-                                                                    "publishedAt": {
                                                                       "type": "string",
                                                                       "format": "date-time"
                                                                     },
@@ -9014,9 +8970,6 @@
               "FOLLOW_UP_EMAIL_FREQ": {
                 "type": "integer"
               },
-              "INVOICE_TEMPLATE": {
-                "type": "string"
-              },
               "expenses": {
                 "type": "array",
                 "items": {
@@ -9172,9 +9125,6 @@
               },
               "FOLLOW_UP_EMAIL_FREQ": {
                 "type": "integer"
-              },
-              "INVOICE_TEMPLATE": {
-                "type": "string"
               },
               "expenses": {
                 "type": "object",
@@ -9907,9 +9857,6 @@
                                           "FOLLOW_UP_EMAIL_FREQ": {
                                             "type": "integer"
                                           },
-                                          "INVOICE_TEMPLATE": {
-                                            "type": "string"
-                                          },
                                           "expenses": {
                                             "type": "object",
                                             "properties": {
@@ -10204,7 +10151,10 @@
                                                                         "type": "number",
                                                                         "format": "float"
                                                                       },
-                                                                      "SALES_REF": {
+                                                                      "PROJECT": {
+                                                                        "type": "string"
+                                                                      },
+                                                                      "sales": {
                                                                         "type": "object",
                                                                         "properties": {
                                                                           "data": {
@@ -10223,9 +10173,6 @@
                                                                             }
                                                                           }
                                                                         }
-                                                                      },
-                                                                      "PROJECT": {
-                                                                        "type": "string"
                                                                       },
                                                                       "createdAt": {
                                                                         "type": "string",
@@ -10285,10 +10232,6 @@
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
-                                                          "type": "string",
-                                                          "format": "date-time"
-                                                        },
-                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -10749,9 +10692,6 @@
               "FOLLOW_UP_EMAIL_FREQ": {
                 "type": "integer"
               },
-              "INVOICE_TEMPLATE": {
-                "type": "string"
-              },
               "expenses": {
                 "type": "object",
                 "properties": {
@@ -11483,9 +11423,6 @@
                                           "FOLLOW_UP_EMAIL_FREQ": {
                                             "type": "integer"
                                           },
-                                          "INVOICE_TEMPLATE": {
-                                            "type": "string"
-                                          },
                                           "expenses": {
                                             "type": "object",
                                             "properties": {
@@ -11780,7 +11717,10 @@
                                                                         "type": "number",
                                                                         "format": "float"
                                                                       },
-                                                                      "SALES_REF": {
+                                                                      "PROJECT": {
+                                                                        "type": "string"
+                                                                      },
+                                                                      "sales": {
                                                                         "type": "object",
                                                                         "properties": {
                                                                           "data": {
@@ -11799,9 +11739,6 @@
                                                                             }
                                                                           }
                                                                         }
-                                                                      },
-                                                                      "PROJECT": {
-                                                                        "type": "string"
                                                                       },
                                                                       "createdAt": {
                                                                         "type": "string",
@@ -11861,10 +11798,6 @@
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
-                                                          "type": "string",
-                                                          "format": "date-time"
-                                                        },
-                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -12358,9 +12291,6 @@
               "FOLLOW_UP_EMAIL_FREQ": {
                 "type": "integer"
               },
-              "INVOICE_TEMPLATE": {
-                "type": "string"
-              },
               "expenses": {
                 "type": "object",
                 "properties": {
@@ -13092,9 +13022,6 @@
                                           "FOLLOW_UP_EMAIL_FREQ": {
                                             "type": "integer"
                                           },
-                                          "INVOICE_TEMPLATE": {
-                                            "type": "string"
-                                          },
                                           "expenses": {
                                             "type": "object",
                                             "properties": {
@@ -13389,7 +13316,10 @@
                                                                         "type": "number",
                                                                         "format": "float"
                                                                       },
-                                                                      "SALES_REF": {
+                                                                      "PROJECT": {
+                                                                        "type": "string"
+                                                                      },
+                                                                      "sales": {
                                                                         "type": "object",
                                                                         "properties": {
                                                                           "data": {
@@ -13408,9 +13338,6 @@
                                                                             }
                                                                           }
                                                                         }
-                                                                      },
-                                                                      "PROJECT": {
-                                                                        "type": "string"
                                                                       },
                                                                       "createdAt": {
                                                                         "type": "string",
@@ -13470,10 +13397,6 @@
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
-                                                          "type": "string",
-                                                          "format": "date-time"
-                                                        },
-                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -13934,9 +13857,6 @@
               "FOLLOW_UP_EMAIL_FREQ": {
                 "type": "integer"
               },
-              "INVOICE_TEMPLATE": {
-                "type": "string"
-              },
               "expenses": {
                 "type": "object",
                 "properties": {
@@ -14668,9 +14588,6 @@
                                           "FOLLOW_UP_EMAIL_FREQ": {
                                             "type": "integer"
                                           },
-                                          "INVOICE_TEMPLATE": {
-                                            "type": "string"
-                                          },
                                           "expenses": {
                                             "type": "object",
                                             "properties": {
@@ -14965,7 +14882,10 @@
                                                                         "type": "number",
                                                                         "format": "float"
                                                                       },
-                                                                      "SALES_REF": {
+                                                                      "PROJECT": {
+                                                                        "type": "string"
+                                                                      },
+                                                                      "sales": {
                                                                         "type": "object",
                                                                         "properties": {
                                                                           "data": {
@@ -14984,9 +14904,6 @@
                                                                             }
                                                                           }
                                                                         }
-                                                                      },
-                                                                      "PROJECT": {
-                                                                        "type": "string"
                                                                       },
                                                                       "createdAt": {
                                                                         "type": "string",
@@ -15046,10 +14963,6 @@
                                                           "format": "date-time"
                                                         },
                                                         "updatedAt": {
-                                                          "type": "string",
-                                                          "format": "date-time"
-                                                        },
-                                                        "publishedAt": {
                                                           "type": "string",
                                                           "format": "date-time"
                                                         },
@@ -17687,9 +17600,6 @@
                                                         "FOLLOW_UP_EMAIL_FREQ": {
                                                           "type": "integer"
                                                         },
-                                                        "INVOICE_TEMPLATE": {
-                                                          "type": "string"
-                                                        },
                                                         "expenses": {
                                                           "type": "object",
                                                           "properties": {
@@ -17984,7 +17894,10 @@
                                                                                       "type": "number",
                                                                                       "format": "float"
                                                                                     },
-                                                                                    "SALES_REF": {
+                                                                                    "PROJECT": {
+                                                                                      "type": "string"
+                                                                                    },
+                                                                                    "sales": {
                                                                                       "type": "object",
                                                                                       "properties": {
                                                                                         "data": {
@@ -18003,9 +17916,6 @@
                                                                                           }
                                                                                         }
                                                                                       }
-                                                                                    },
-                                                                                    "PROJECT": {
-                                                                                      "type": "string"
                                                                                     },
                                                                                     "createdAt": {
                                                                                       "type": "string",
@@ -18065,10 +17975,6 @@
                                                                         "format": "date-time"
                                                                       },
                                                                       "updatedAt": {
-                                                                        "type": "string",
-                                                                        "format": "date-time"
-                                                                      },
-                                                                      "publishedAt": {
                                                                         "type": "string",
                                                                         "format": "date-time"
                                                                       },
@@ -19260,9 +19166,6 @@
                                                         "FOLLOW_UP_EMAIL_FREQ": {
                                                           "type": "integer"
                                                         },
-                                                        "INVOICE_TEMPLATE": {
-                                                          "type": "string"
-                                                        },
                                                         "expenses": {
                                                           "type": "object",
                                                           "properties": {
@@ -19557,7 +19460,10 @@
                                                                                       "type": "number",
                                                                                       "format": "float"
                                                                                     },
-                                                                                    "SALES_REF": {
+                                                                                    "PROJECT": {
+                                                                                      "type": "string"
+                                                                                    },
+                                                                                    "sales": {
                                                                                       "type": "object",
                                                                                       "properties": {
                                                                                         "data": {
@@ -19576,9 +19482,6 @@
                                                                                           }
                                                                                         }
                                                                                       }
-                                                                                    },
-                                                                                    "PROJECT": {
-                                                                                      "type": "string"
                                                                                     },
                                                                                     "createdAt": {
                                                                                       "type": "string",
@@ -19638,10 +19541,6 @@
                                                                         "format": "date-time"
                                                                       },
                                                                       "updatedAt": {
-                                                                        "type": "string",
-                                                                        "format": "date-time"
-                                                                      },
-                                                                      "publishedAt": {
                                                                         "type": "string",
                                                                         "format": "date-time"
                                                                       },
@@ -20866,9 +20765,6 @@
                                                         "FOLLOW_UP_EMAIL_FREQ": {
                                                           "type": "integer"
                                                         },
-                                                        "INVOICE_TEMPLATE": {
-                                                          "type": "string"
-                                                        },
                                                         "expenses": {
                                                           "type": "object",
                                                           "properties": {
@@ -21163,7 +21059,10 @@
                                                                                       "type": "number",
                                                                                       "format": "float"
                                                                                     },
-                                                                                    "SALES_REF": {
+                                                                                    "PROJECT": {
+                                                                                      "type": "string"
+                                                                                    },
+                                                                                    "sales": {
                                                                                       "type": "object",
                                                                                       "properties": {
                                                                                         "data": {
@@ -21182,9 +21081,6 @@
                                                                                           }
                                                                                         }
                                                                                       }
-                                                                                    },
-                                                                                    "PROJECT": {
-                                                                                      "type": "string"
                                                                                     },
                                                                                     "createdAt": {
                                                                                       "type": "string",
@@ -21244,10 +21140,6 @@
                                                                         "format": "date-time"
                                                                       },
                                                                       "updatedAt": {
-                                                                        "type": "string",
-                                                                        "format": "date-time"
-                                                                      },
-                                                                      "publishedAt": {
                                                                         "type": "string",
                                                                         "format": "date-time"
                                                                       },
@@ -22439,9 +22331,6 @@
                                                         "FOLLOW_UP_EMAIL_FREQ": {
                                                           "type": "integer"
                                                         },
-                                                        "INVOICE_TEMPLATE": {
-                                                          "type": "string"
-                                                        },
                                                         "expenses": {
                                                           "type": "object",
                                                           "properties": {
@@ -22736,7 +22625,10 @@
                                                                                       "type": "number",
                                                                                       "format": "float"
                                                                                     },
-                                                                                    "SALES_REF": {
+                                                                                    "PROJECT": {
+                                                                                      "type": "string"
+                                                                                    },
+                                                                                    "sales": {
                                                                                       "type": "object",
                                                                                       "properties": {
                                                                                         "data": {
@@ -22755,9 +22647,6 @@
                                                                                           }
                                                                                         }
                                                                                       }
-                                                                                    },
-                                                                                    "PROJECT": {
-                                                                                      "type": "string"
                                                                                     },
                                                                                     "createdAt": {
                                                                                       "type": "string",
@@ -22817,10 +22706,6 @@
                                                                         "format": "date-time"
                                                                       },
                                                                       "updatedAt": {
-                                                                        "type": "string",
-                                                                        "format": "date-time"
-                                                                      },
-                                                                      "publishedAt": {
                                                                         "type": "string",
                                                                         "format": "date-time"
                                                                       },
@@ -25908,7 +25793,10 @@
                 "type": "number",
                 "format": "float"
               },
-              "SALES_REF": {
+              "PROJECT": {
+                "type": "string"
+              },
+              "sales": {
                 "type": "array",
                 "items": {
                   "oneOf": [
@@ -25921,9 +25809,6 @@
                   ],
                   "example": "string or id"
                 }
-              },
-              "PROJECT": {
-                "type": "string"
               }
             }
           }
@@ -26286,7 +26171,10 @@
                 "type": "number",
                 "format": "float"
               },
-              "SALES_REF": {
+              "PROJECT": {
+                "type": "string"
+              },
+              "sales": {
                 "type": "object",
                 "properties": {
                   "data": {
@@ -26406,7 +26294,10 @@
                                             "type": "number",
                                             "format": "float"
                                           },
-                                          "SALES_REF": {
+                                          "PROJECT": {
+                                            "type": "string"
+                                          },
+                                          "sales": {
                                             "type": "object",
                                             "properties": {
                                               "data": {
@@ -26425,9 +26316,6 @@
                                                 }
                                               }
                                             }
-                                          },
-                                          "PROJECT": {
-                                            "type": "string"
                                           },
                                           "createdAt": {
                                             "type": "string",
@@ -26490,10 +26378,6 @@
                               "type": "string",
                               "format": "date-time"
                             },
-                            "publishedAt": {
-                              "type": "string",
-                              "format": "date-time"
-                            },
                             "createdBy": {
                               "type": "object",
                               "properties": {
@@ -26534,9 +26418,6 @@
                     }
                   }
                 }
-              },
-              "PROJECT": {
-                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -26945,7 +26826,10 @@
                 "type": "number",
                 "format": "float"
               },
-              "SALES_REF": {
+              "PROJECT": {
+                "type": "string"
+              },
+              "sales": {
                 "type": "object",
                 "properties": {
                   "data": {
@@ -27065,7 +26949,10 @@
                                             "type": "number",
                                             "format": "float"
                                           },
-                                          "SALES_REF": {
+                                          "PROJECT": {
+                                            "type": "string"
+                                          },
+                                          "sales": {
                                             "type": "object",
                                             "properties": {
                                               "data": {
@@ -27084,9 +26971,6 @@
                                                 }
                                               }
                                             }
-                                          },
-                                          "PROJECT": {
-                                            "type": "string"
                                           },
                                           "createdAt": {
                                             "type": "string",
@@ -27149,10 +27033,6 @@
                               "type": "string",
                               "format": "date-time"
                             },
-                            "publishedAt": {
-                              "type": "string",
-                              "format": "date-time"
-                            },
                             "createdBy": {
                               "type": "object",
                               "properties": {
@@ -27193,9 +27073,6 @@
                     }
                   }
                 }
-              },
-              "PROJECT": {
-                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -27637,7 +27514,10 @@
                 "type": "number",
                 "format": "float"
               },
-              "SALES_REF": {
+              "PROJECT": {
+                "type": "string"
+              },
+              "sales": {
                 "type": "object",
                 "properties": {
                   "data": {
@@ -27757,7 +27637,10 @@
                                             "type": "number",
                                             "format": "float"
                                           },
-                                          "SALES_REF": {
+                                          "PROJECT": {
+                                            "type": "string"
+                                          },
+                                          "sales": {
                                             "type": "object",
                                             "properties": {
                                               "data": {
@@ -27776,9 +27659,6 @@
                                                 }
                                               }
                                             }
-                                          },
-                                          "PROJECT": {
-                                            "type": "string"
                                           },
                                           "createdAt": {
                                             "type": "string",
@@ -27841,10 +27721,6 @@
                               "type": "string",
                               "format": "date-time"
                             },
-                            "publishedAt": {
-                              "type": "string",
-                              "format": "date-time"
-                            },
                             "createdBy": {
                               "type": "object",
                               "properties": {
@@ -27885,9 +27761,6 @@
                     }
                   }
                 }
-              },
-              "PROJECT": {
-                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -28296,7 +28169,10 @@
                 "type": "number",
                 "format": "float"
               },
-              "SALES_REF": {
+              "PROJECT": {
+                "type": "string"
+              },
+              "sales": {
                 "type": "object",
                 "properties": {
                   "data": {
@@ -28416,7 +28292,10 @@
                                             "type": "number",
                                             "format": "float"
                                           },
-                                          "SALES_REF": {
+                                          "PROJECT": {
+                                            "type": "string"
+                                          },
+                                          "sales": {
                                             "type": "object",
                                             "properties": {
                                               "data": {
@@ -28435,9 +28314,6 @@
                                                 }
                                               }
                                             }
-                                          },
-                                          "PROJECT": {
-                                            "type": "string"
                                           },
                                           "createdAt": {
                                             "type": "string",
@@ -28500,10 +28376,6 @@
                               "type": "string",
                               "format": "date-time"
                             },
-                            "publishedAt": {
-                              "type": "string",
-                              "format": "date-time"
-                            },
                             "createdBy": {
                               "type": "object",
                               "properties": {
@@ -28544,9 +28416,6 @@
                     }
                   }
                 }
-              },
-              "PROJECT": {
-                "type": "string"
               },
               "createdAt": {
                 "type": "string",
@@ -29091,7 +28960,10 @@
                               "type": "number",
                               "format": "float"
                             },
-                            "SALES_REF": {
+                            "PROJECT": {
+                              "type": "string"
+                            },
+                            "sales": {
                               "type": "object",
                               "properties": {
                                 "data": {
@@ -29178,10 +29050,6 @@
                                             "type": "string",
                                             "format": "date-time"
                                           },
-                                          "publishedAt": {
-                                            "type": "string",
-                                            "format": "date-time"
-                                          },
                                           "createdBy": {
                                             "type": "object",
                                             "properties": {
@@ -29222,9 +29090,6 @@
                                   }
                                 }
                               }
-                            },
-                            "PROJECT": {
-                              "type": "string"
                             },
                             "createdAt": {
                               "type": "string",
@@ -29284,10 +29149,6 @@
                 "format": "date-time"
               },
               "updatedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -29745,7 +29606,10 @@
                               "type": "number",
                               "format": "float"
                             },
-                            "SALES_REF": {
+                            "PROJECT": {
+                              "type": "string"
+                            },
+                            "sales": {
                               "type": "object",
                               "properties": {
                                 "data": {
@@ -29832,10 +29696,6 @@
                                             "type": "string",
                                             "format": "date-time"
                                           },
-                                          "publishedAt": {
-                                            "type": "string",
-                                            "format": "date-time"
-                                          },
                                           "createdBy": {
                                             "type": "object",
                                             "properties": {
@@ -29876,9 +29736,6 @@
                                   }
                                 }
                               }
-                            },
-                            "PROJECT": {
-                              "type": "string"
                             },
                             "createdAt": {
                               "type": "string",
@@ -29938,10 +29795,6 @@
                 "format": "date-time"
               },
               "updatedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -30432,7 +30285,10 @@
                               "type": "number",
                               "format": "float"
                             },
-                            "SALES_REF": {
+                            "PROJECT": {
+                              "type": "string"
+                            },
+                            "sales": {
                               "type": "object",
                               "properties": {
                                 "data": {
@@ -30519,10 +30375,6 @@
                                             "type": "string",
                                             "format": "date-time"
                                           },
-                                          "publishedAt": {
-                                            "type": "string",
-                                            "format": "date-time"
-                                          },
                                           "createdBy": {
                                             "type": "object",
                                             "properties": {
@@ -30563,9 +30415,6 @@
                                   }
                                 }
                               }
-                            },
-                            "PROJECT": {
-                              "type": "string"
                             },
                             "createdAt": {
                               "type": "string",
@@ -30625,10 +30474,6 @@
                 "format": "date-time"
               },
               "updatedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -31086,7 +30931,10 @@
                               "type": "number",
                               "format": "float"
                             },
-                            "SALES_REF": {
+                            "PROJECT": {
+                              "type": "string"
+                            },
+                            "sales": {
                               "type": "object",
                               "properties": {
                                 "data": {
@@ -31173,10 +31021,6 @@
                                             "type": "string",
                                             "format": "date-time"
                                           },
-                                          "publishedAt": {
-                                            "type": "string",
-                                            "format": "date-time"
-                                          },
                                           "createdBy": {
                                             "type": "object",
                                             "properties": {
@@ -31217,9 +31061,6 @@
                                   }
                                 }
                               }
-                            },
-                            "PROJECT": {
-                              "type": "string"
                             },
                             "createdAt": {
                               "type": "string",
@@ -31279,10 +31120,6 @@
                 "format": "date-time"
               },
               "updatedAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "publishedAt": {
                 "type": "string",
                 "format": "date-time"
               },
@@ -32804,9 +32641,6 @@
                             "FOLLOW_UP_EMAIL_FREQ": {
                               "type": "integer"
                             },
-                            "INVOICE_TEMPLATE": {
-                              "type": "string"
-                            },
                             "expenses": {
                               "type": "object",
                               "properties": {
@@ -33815,7 +33649,10 @@
                                                           "type": "number",
                                                           "format": "float"
                                                         },
-                                                        "SALES_REF": {
+                                                        "PROJECT": {
+                                                          "type": "string"
+                                                        },
+                                                        "sales": {
                                                           "type": "object",
                                                           "properties": {
                                                             "data": {
@@ -33834,9 +33671,6 @@
                                                               }
                                                             }
                                                           }
-                                                        },
-                                                        "PROJECT": {
-                                                          "type": "string"
                                                         },
                                                         "createdAt": {
                                                           "type": "string",
@@ -33896,10 +33730,6 @@
                                             "format": "date-time"
                                           },
                                           "updatedAt": {
-                                            "type": "string",
-                                            "format": "date-time"
-                                          },
-                                          "publishedAt": {
                                             "type": "string",
                                             "format": "date-time"
                                           },
@@ -34247,9 +34077,6 @@
                             "FOLLOW_UP_EMAIL_FREQ": {
                               "type": "integer"
                             },
-                            "INVOICE_TEMPLATE": {
-                              "type": "string"
-                            },
                             "expenses": {
                               "type": "object",
                               "properties": {
@@ -35258,7 +35085,10 @@
                                                           "type": "number",
                                                           "format": "float"
                                                         },
-                                                        "SALES_REF": {
+                                                        "PROJECT": {
+                                                          "type": "string"
+                                                        },
+                                                        "sales": {
                                                           "type": "object",
                                                           "properties": {
                                                             "data": {
@@ -35277,9 +35107,6 @@
                                                               }
                                                             }
                                                           }
-                                                        },
-                                                        "PROJECT": {
-                                                          "type": "string"
                                                         },
                                                         "createdAt": {
                                                           "type": "string",
@@ -35339,10 +35166,6 @@
                                             "format": "date-time"
                                           },
                                           "updatedAt": {
-                                            "type": "string",
-                                            "format": "date-time"
-                                          },
-                                          "publishedAt": {
                                             "type": "string",
                                             "format": "date-time"
                                           },
@@ -35723,9 +35546,6 @@
                             "FOLLOW_UP_EMAIL_FREQ": {
                               "type": "integer"
                             },
-                            "INVOICE_TEMPLATE": {
-                              "type": "string"
-                            },
                             "expenses": {
                               "type": "object",
                               "properties": {
@@ -36734,7 +36554,10 @@
                                                           "type": "number",
                                                           "format": "float"
                                                         },
-                                                        "SALES_REF": {
+                                                        "PROJECT": {
+                                                          "type": "string"
+                                                        },
+                                                        "sales": {
                                                           "type": "object",
                                                           "properties": {
                                                             "data": {
@@ -36753,9 +36576,6 @@
                                                               }
                                                             }
                                                           }
-                                                        },
-                                                        "PROJECT": {
-                                                          "type": "string"
                                                         },
                                                         "createdAt": {
                                                           "type": "string",
@@ -36815,10 +36635,6 @@
                                             "format": "date-time"
                                           },
                                           "updatedAt": {
-                                            "type": "string",
-                                            "format": "date-time"
-                                          },
-                                          "publishedAt": {
                                             "type": "string",
                                             "format": "date-time"
                                           },
@@ -37166,9 +36982,6 @@
                             "FOLLOW_UP_EMAIL_FREQ": {
                               "type": "integer"
                             },
-                            "INVOICE_TEMPLATE": {
-                              "type": "string"
-                            },
                             "expenses": {
                               "type": "object",
                               "properties": {
@@ -38177,7 +37990,10 @@
                                                           "type": "number",
                                                           "format": "float"
                                                         },
-                                                        "SALES_REF": {
+                                                        "PROJECT": {
+                                                          "type": "string"
+                                                        },
+                                                        "sales": {
                                                           "type": "object",
                                                           "properties": {
                                                             "data": {
@@ -38196,9 +38012,6 @@
                                                               }
                                                             }
                                                           }
-                                                        },
-                                                        "PROJECT": {
-                                                          "type": "string"
                                                         },
                                                         "createdAt": {
                                                           "type": "string",
@@ -38258,10 +38071,6 @@
                                             "format": "date-time"
                                           },
                                           "updatedAt": {
-                                            "type": "string",
-                                            "format": "date-time"
-                                          },
-                                          "publishedAt": {
                                             "type": "string",
                                             "format": "date-time"
                                           },
