@@ -1,5 +1,6 @@
 'use strict';
 const { parseMultipartData } = require("@strapi/utils");
+const { generateBillingCycleDates, replaceVariableWithValue } = require("../../../../config/util");
 
 /**
  * recursive-sale controller
@@ -13,29 +14,34 @@ module.exports = createCoreController('api::recursive-sale.recursive-sale', ({ s
         let recursiveSalesData = { ...data };
         let recursiveSale = await strapi.service("api::recursive-sale.recursive-sale").create(recursiveSalesData);
         let recursiveSaleId = recursiveSale.id;
+        let { EXPECTED_SALE_COMPLETION_DATE, RECURRING_FREQUENCY, NUMBER_OF_RECURRENCES } = recursiveSalesData.data
         console.log(recursiveSalesData)
-        let salesPayload = {
-            PROJECT: recursiveSalesData?.data?.PROJECT,
-            STATUS_OF_PROJECT: "UPCOMING",
-            EXPECTED_COMPLETION_DATE: "2023-05-09",
-            MONTH_OF_SALE: "2023-05-09",
-            DESCRIPTION: "this is a local project",
-            AMOUNT: 0,
-            services: recursiveSalesData?.data?.services,
-            recursive_sale: recursiveSaleId,
-        };
+        let salesPayload = {}
         let salesIds = [];
+        let data2 = generateBillingCycleDates(EXPECTED_SALE_COMPLETION_DATE, RECURRING_FREQUENCY, NUMBER_OF_RECURRENCES)
+        console.log(data2)
         for (
             let index = 0;
             index < recursiveSalesData.data.NUMBER_OF_RECURRENCES;
             index++
         ) {
+            let tempDescription = replaceVariableWithValue(recursiveSalesData?.data?.DESCRIPTION, recursiveSalesData.data)
+            console.log("NSNS", tempDescription)
+            salesPayload = {
+                PROJECT: recursiveSalesData?.data?.PROJECT,
+                STATUS_OF_PROJECT: "UPCOMING",
+                EXPECTED_COMPLETION_DATE: data2[index],
+                MONTH_OF_SALE: data2[index],
+                DESCRIPTION: tempDescription,
+                AMOUNT: recursiveSalesData?.data?.AMOUNT,
+                services: recursiveSalesData?.data?.services,
+                recursive_sale: recursiveSaleId,
+            };
             let result = await strapi.db
                 .query("api::sale.sale")
                 .create({ data: salesPayload });
             salesIds.push(result.id);
         }
-        console.log("ABCD", salesIds, recursiveSaleId, )
         recursiveSalesData.data.sales = salesIds;
         console.log(recursiveSalesData)
         let tempSales = await strapi
@@ -48,7 +54,6 @@ module.exports = createCoreController('api::recursive-sale.recursive-sale', ({ s
         const sanitizedResults = await this.sanitizeOutput(tempSales, ctx);
         return this.transformResponse(sanitizedResults);
     },
-
     async update(ctx) {
         const { data } = parseMultipartData(ctx);
         let recursiveSaleId = ctx.params.id;
@@ -56,19 +61,11 @@ module.exports = createCoreController('api::recursive-sale.recursive-sale', ({ s
         let recursiveSale = await strapi
             .service("api::recursive-sale.recursive-sale")
             .update(recursiveSaleId, recursiveSalesData);
-        let salesPayload = {
-            PROJECT: "test 1234",
-            STATUS_OF_PROJECT: "UPCOMING",
-            EXPECTED_COMPLETION_DATE: "2023-05-09",
-            MONTH_OF_SALE: "2023-05-09",
-            DESCRIPTION: "this is a local project abc",
-            AMOUNT: 0,
-            services: recursiveSalesData.data.services,
-        };
-
+  
         const SalesToUpdate = await strapi.db.query("api::sale.sale").findMany({
             where: {
-                recursive_sales: [15],
+                recursive_sales: [recursiveSaleId],
+                STATUS_OF_PROJECT: "UPCOMING",
               }
             }
           );
@@ -82,27 +79,42 @@ module.exports = createCoreController('api::recursive-sale.recursive-sale', ({ s
         return this.transformResponse(sanitizedResults);
     },
 
-    // async delete(ctx) {
-    //     const { data } = parseMultipartData(ctx);
-    //     let recursiveSaleId = ctx.params.id;
-    //     let recursiveSalesData = { ...data };
+    async delete(ctx) {
+        let recursiveSaleId = ctx.params.id;
+        let findSalesData = await strapi.db
+            .query("api::recursive-sale.recursive-sale")
+            .findOne({
+                where: { id: recursiveSaleId },
+                populate: ["SALES_REF"],
+            });
 
-    //     const SalesToUpdate = await strapi.db.query("api::sale.sale").findMany({
-    //         where: {
-    //             recursive_sales: [15],
-    //         }
-    //     }
-    //     );
-    //     await Promise.all(
-    //         SalesToUpdate.map(({ id }) => {
-    //             strapi.db.query("api::lamp.lamp").delete({
-    //                 where: { id },
-    //             })
-    //         }
-    //         )
-    //     );
-    //     const sanitizedResults = await this.sanitizeOutput(recursiveSale, ctx);
-    //     return this.transformResponse(sanitizedResults);
-    // },
+        let statusCompleted = findSalesData["SALES_REF"].some(({ STATUS_OF_PROJECT }) => STATUS_OF_PROJECT === 'COMPLETED')
+        if (statusCompleted) {
+            ctx.body = {
+                message: {
+                    error: "Some Sales entries are already in COMPLETED state"
+                }
+            }
+        } else {
+
+            let salesDataIds = findSalesData["SALES_REF"].map(({ id }) => id);
+            salesDataIds.forEach(async (ele) => {
+                await strapi.db.query("api::sale.sale").delete({
+                    where: {
+                        id: ele,
+                    },
+                });
+            });
+            let recursive_sale = strapi.db
+                .query("api::recursive-sale.recursive-sale")
+                .delete({
+                    where: {
+                        id: recursiveSaleId,
+                    },
+                });
+            const sanitizedResults = await this.sanitizeOutput(recursive_sale, ctx);
+            return this.transformResponse(sanitizedResults);
+        }
+    },
 })
 )
