@@ -61,43 +61,51 @@ module.exports = createCoreController('api::recursive-sale.recursive-sale', ({ s
         let recursiveSale = await strapi
             .service("api::recursive-sale.recursive-sale")
             .update(recursiveSaleId, recursiveSalesData);
-  
+
         const SalesToUpdate = await strapi.db.query("api::sale.sale").findMany({
             where: {
                 recursive_sales: [recursiveSaleId],
                 STATUS_OF_PROJECT: "UPCOMING",
-              }
             }
-          );
-          await Promise.all(
-            SalesToUpdate.map(({ id }) =>{
+        }
+        );
+        await Promise.all(
+            SalesToUpdate.map(({ id }) => {
                 strapi.service("api::sale.sale").update(id, recursiveSalesData)
             }
             )
-          );
+        );
         const sanitizedResults = await this.sanitizeOutput(recursiveSale, ctx);
         return this.transformResponse(sanitizedResults);
     },
-
     async delete(ctx) {
         let recursiveSaleId = ctx.params.id;
         let findSalesData = await strapi.db
             .query("api::recursive-sale.recursive-sale")
             .findOne({
                 where: { id: recursiveSaleId },
-                populate: ["SALES_REF"],
+                populate: ['sales'],
             });
-
-        let statusCompleted = findSalesData["SALES_REF"].some(({ STATUS_OF_PROJECT }) => STATUS_OF_PROJECT === 'COMPLETED')
+        // console.log(findSalesData, "dsbk")
+        if (!(findSalesData && Object.keys(findSalesData))) {
+            ctx.body = {
+                message: {
+                    error: "data is not present in db"
+                }
+            }
+            return
+        }
+        let statusCompleted = findSalesData["sales"].some(({ STATUS_OF_PROJECT }) => STATUS_OF_PROJECT === 'COMPLETED')
         if (statusCompleted) {
             ctx.body = {
                 message: {
-                    error: "Some Sales entries are already in COMPLETED state"
+                    error: "STATUS_OF_PROJECT  Completed Cannot  Delete the data"
                 }
             }
+            return
         } else {
 
-            let salesDataIds = findSalesData["SALES_REF"].map(({ id }) => id);
+            let salesDataIds = findSalesData["sales"].map(({ id }) => id);
             salesDataIds.forEach(async (ele) => {
                 await strapi.db.query("api::sale.sale").delete({
                     where: {
@@ -115,6 +123,6 @@ module.exports = createCoreController('api::recursive-sale.recursive-sale', ({ s
             const sanitizedResults = await this.sanitizeOutput(recursive_sale, ctx);
             return this.transformResponse(sanitizedResults);
         }
-    },
+    }
 })
 )
