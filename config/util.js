@@ -41,10 +41,11 @@ exports.increasedInvoiceFunc =  function(taxNumber,countNum=1){
     if(str===""){
       return ""
     }
+    console.log("HEY", data);
     let variablesData = str.match(/<([^>]+)>/g);
     let variablesKeyData = [];
     console.log(variablesData)
-    variablesData.forEach((variableKey) => {
+    variablesData?.forEach((variableKey) => {
       let variableName = variableKey.replace(/<|>/g, "");
       let keyObj = {
         [variableKey]: data[variableName],

@@ -108,8 +108,9 @@
     },
     "sales": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::sale.sale"
+      "relation": "manyToMany",
+      "target": "api::sale.sale",
+      "inversedBy": "invoices"
     },
     "invoice_template": {
       "type": "relation",
