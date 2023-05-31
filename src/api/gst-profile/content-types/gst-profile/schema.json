@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gst_profiles",
+  "info": {
+    "singularName": "gst-profile",
+    "pluralName": "gst-profiles",
+    "displayName": "GST_PROFILE"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "GST_NUMBER": {
+      "type": "string"
+    },
+    "ADDRESS": {
+      "type": "string"
+    },
+    "CITY": {
+      "type": "string"
+    },
+    "STATE": {
+      "type": "string"
+    },
+    "PINCODE": {
+      "type": "string"
+    },
+    "country_master": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::country-master.country-master"
+    }
+  }
+}
