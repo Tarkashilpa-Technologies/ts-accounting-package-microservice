@@ -69,25 +69,43 @@ module.exports = createCoreController('api::recursive-sale.recursive-sale', ({ s
     const { data } = parseMultipartData(ctx);
     let recursiveSaleId = ctx.params.id;
     let recursiveSalesData = { ...data };
-    let recursiveSale = await strapi
-      .service("api::recursive-sale.recursive-sale")
-      .update(recursiveSaleId, recursiveSalesData);
 
-    const SalesToUpdate = await strapi.db.query("api::sale.sale").findMany({
+    let tempSales = await strapi.db.query("api::sale.sale").findMany({
       where: {
         recursive_sales: [recursiveSaleId],
-        STATUS_OF_PROJECT: "UPCOMING",
+      },
+      populate: ['invoices'],
+    })
+    let statusCompleted = tempSales?.filter((val) => val?.invoices?.length > 0)
+    let saleIds = statusCompleted?.map(obj => obj.id)
+    console.log(statusCompleted, "ABCD");
+    if (statusCompleted?.length >= 1) {
+      ctx.send({
+        message: 'An Invoice is already Genertated for Sale, Please delete if before updating Recurssive Sale',
+        saleIds: saleIds
+      }, 400);
+      return
+    } else {
+      let recursiveSale = await strapi
+        .service("api::recursive-sale.recursive-sale")
+        .update(recursiveSaleId, recursiveSalesData);
+
+      const SalesToUpdate = await strapi.db.query("api::sale.sale").findMany({
+        where: {
+          recursive_sales: [recursiveSaleId],
+          // STATUS_OF_PROJECT: "UPCOMING",
+        }
       }
+      );
+      await Promise.all(
+        SalesToUpdate.map(({ id }) => {
+          strapi.service("api::sale.sale").update(id, recursiveSalesData)
+        }
+        )
+      );
+      const sanitizedResults = await this.sanitizeOutput(recursiveSale, ctx);
+      return this.transformResponse(sanitizedResults);
     }
-    );
-    await Promise.all(
-      SalesToUpdate.map(({ id }) => {
-        strapi.service("api::sale.sale").update(id, recursiveSalesData)
-      }
-      )
-    );
-    const sanitizedResults = await this.sanitizeOutput(recursiveSale, ctx);
-    return this.transformResponse(sanitizedResults);
   },
   async delete(ctx) {
     let recursiveSaleId = ctx.params.id;
@@ -97,25 +115,21 @@ module.exports = createCoreController('api::recursive-sale.recursive-sale', ({ s
         where: { id: recursiveSaleId },
         populate: ['sales'],
       });
-      const SalesToUpdate = await strapi.db.query("api::sale.sale").findMany({
-        where: {
-          recursive_sales: [recursiveSaleId],
-        },
-        populate: ['invoices'],
-      })
+    let SalesToUpdate = await strapi.db.query("api::sale.sale").findMany({
+      where: {
+        recursive_sales: [recursiveSaleId],
+      },
+      populate: ['invoices'],
+    })
 
     console.log(SalesToUpdate, "dsbk")
-    // if (!(findSalesData && Object.keys(findSalesData))) {
-    //   ctx.send({
-    //     message: 'data is not present in db'
-    //   }, 400);
-    //   return
-    // }
-    let statusCompleted = SalesToUpdate?.some((val) => val?.invoices?.length > 0)
+    let statusCompleted = SalesToUpdate?.filter((val) => val?.invoices?.length > 0)
+    let saleIds = statusCompleted?.map(obj => obj.id);
     console.log(statusCompleted, "ABCD")
-    if (statusCompleted) {
+    if (statusCompleted?.length >= 1) {
       ctx.send({
-        message: 'An Invoice is already Genertated for Sale, Please delete if before removing Recurssive Sale'
+        message: 'An Invoice is already Genertated for Sale, Please delete if before removing Recurssive Sale',
+        saleIds: saleIds
       }, 400);
       return
     } else {
