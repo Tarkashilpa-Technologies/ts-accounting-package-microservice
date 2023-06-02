@@ -133,9 +133,12 @@ module.exports = createCoreController('api::recursive-sale.recursive-sale', ({ s
       }, 400);
       return
     } else {
-
-      let salesDataIds = findSalesData["sales"].map(({ id }) => id);
-      salesDataIds.forEach(async (ele) => {
+      console.log(findSalesData, "dsbk")
+      let salesDataIds = []
+      if(findSalesData?.sales){
+         salesDataIds = findSalesData?.["sales"].map(({ id }) => id);
+      }
+      salesDataIds?.forEach(async (ele) => {
         await strapi.db.query("api::sale.sale").delete({
           where: {
             id: ele,
