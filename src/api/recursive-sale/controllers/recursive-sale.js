@@ -44,7 +44,7 @@ module.exports = createCoreController('api::recursive-sale.recursive-sale', ({ s
         EXPECTED_COMPLETION_DATE: data2[index],
         MONTH_OF_SALE: data2[index],
         DESCRIPTION: tempDescription,
-        AMOUNT: recursiveSalesData?.data?.AMOUNT,
+        AMOUNT: recursiveSalesData?.data?.AMOUNT_WITHOUT_TAXES,
         services: recursiveSalesData?.data?.services,
         recursive_sale: recursiveSaleId,
       };

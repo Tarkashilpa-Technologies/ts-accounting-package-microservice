@@ -24,9 +24,6 @@
     "EXPECTED_SALE_COMPLETION_DATE": {
       "type": "date"
     },
-    "MONTH_OF_SALE_DONE": {
-      "type": "date"
-    },
     "NUMBER_OF_RECURRENCES": {
       "type": "integer"
     },
@@ -49,6 +46,13 @@
       "relation": "manyToMany",
       "target": "api::sale.sale",
       "inversedBy": "recursive_sales"
+    },
+    "MONTH_OF_SALE_DONE": {
+      "type": "enumeration",
+      "enum": [
+        "PREVIOUS",
+        "SELECTED"
+      ]
     }
   }
 }
