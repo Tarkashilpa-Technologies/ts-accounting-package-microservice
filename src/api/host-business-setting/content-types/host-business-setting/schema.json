@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "host_business_settings",
+  "info": {
+    "singularName": "host-business-setting",
+    "pluralName": "host-business-settings",
+    "displayName": "HOST_BUSINESS_SETTING"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "LAST_GENERATED_INVOICE_NUMBER": {
+      "type": "string"
+    },
+    "HOST_BUSINESS_RELATION": {
+      "type": "string"
+    }
+  }
+}
