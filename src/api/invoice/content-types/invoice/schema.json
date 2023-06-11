@@ -110,7 +110,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::sale.sale",
-      "inversedBy": "invoices"
+      "mappedBy": "invoices"
     },
     "invoice_template": {
       "type": "relation",

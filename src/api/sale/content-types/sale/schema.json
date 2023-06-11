@@ -50,6 +50,14 @@
       "relation": "manyToMany",
       "target": "api::invoice.invoice",
       "inversedBy": "sales"
+    },
+    "SELLER_HOST_BUSINESS": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::currency.currency"
     }
   }
 }
