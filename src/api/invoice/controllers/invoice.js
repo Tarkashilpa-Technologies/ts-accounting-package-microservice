@@ -11,6 +11,7 @@ const {
     increasedInvoiceFunc,
     billDateStr,
     percentage,
+    calculateTax,
   } = require("../../../utils/functions");
 
 module.exports = createCoreController('api::invoice.invoice',  ({ strapi }) => ({
@@ -22,21 +23,30 @@ module.exports = createCoreController('api::invoice.invoice',  ({ strapi }) => (
           {
             start: 0,
             sort: "INVOICE_NUMBER:desc",
-            limit: 1,
+            limit: 5,
             where: {
               TYPE: invoiceData.TYPE,
             },
           }
         );
+        console.log("NSNS",prevInvoiceNumber, invoiceData.TYPE)
         if (invoiceData.TYPE === "TAX") {
-          // console.log("prevInvoiceNumber", prevInvoiceNumber);
+          let newInvoiceNumber= ''
+          console.log("prevInvoiceNumber", invoiceData.TYPE);
           if (prevInvoiceNumber.length) {
             let { INVOICE_NUMBER } = prevInvoiceNumber[0];
-            let newInvoiceNumber = increasedInvoiceFunc(INVOICE_NUMBER);
+            if(INVOICE_NUMBER == ''){
+              newInvoiceNumber = increasedInvoiceFunc('TAX000');
+            }
+            else{
+              newInvoiceNumber = increasedInvoiceFunc(INVOICE_NUMBER);
+            }
             invoiceData["INVOICE_NUMBER"] = newInvoiceNumber;
           }
         } else if (invoiceData.TYPE === "PROFORMA") {
+          console.log("prevInvoiceNumber", invoiceData.TYPE);
           if (prevInvoiceNumber.length) {
+            console.log("ABCD", prevInvoiceNumber[0]);
             let { INVOICE_NUMBER } = prevInvoiceNumber[0];
             let newInvoiceNumber = increasedInvoiceFunc(INVOICE_NUMBER);
             invoiceData["INVOICE_NUMBER"] = newInvoiceNumber;
@@ -67,6 +77,7 @@ module.exports = createCoreController('api::invoice.invoice',  ({ strapi }) => (
         let tempSales = newInvoice;
         const sanitizedResults = await this.sanitizeOutput(tempSales, ctx);
         return this.transformResponse(sanitizedResults);
+
       },
     async getInvoicePdf(ctx) {
         let invoiceItems= []
@@ -141,5 +152,81 @@ module.exports = createCoreController('api::invoice.invoice',  ({ strapi }) => (
             }
         }
         }
-      },    
+      },   
+      
+      async createInvoice(ctx){
+        const { data } = parseMultipartData(ctx);
+        let invoiceData = { ...data.data };
+        let {sales} = invoiceData;
+        let prevInvoiceNumber = await strapi.entityService.findMany(
+          "api::invoice.invoice",
+          {
+            start: 0,
+            sort: "INVOICE_NUMBER:desc",
+            limit: 5,
+            where: {
+              TYPE: invoiceData.TYPE,
+            },
+          }
+        );
+        console.log("NSNS",prevInvoiceNumber, invoiceData.TYPE)
+        if (invoiceData.TYPE === "TAX") {
+          let newInvoiceNumber= ''
+          console.log("prevInvoiceNumber", invoiceData.TYPE);
+          if (prevInvoiceNumber.length) {
+            let { INVOICE_NUMBER } = prevInvoiceNumber[0];
+            if(INVOICE_NUMBER == ''){
+              newInvoiceNumber = increasedInvoiceFunc('TAX000');
+            }
+            else{
+              newInvoiceNumber = increasedInvoiceFunc(INVOICE_NUMBER);
+            }
+            invoiceData["INVOICE_NUMBER"] = newInvoiceNumber;
+          }
+        } else if (invoiceData.TYPE === "PROFORMA") {
+          console.log("prevInvoiceNumber", invoiceData.TYPE);
+          if (prevInvoiceNumber.length) {
+            console.log("ABCD", prevInvoiceNumber[0]);
+            let { INVOICE_NUMBER } = prevInvoiceNumber[0];
+            let newInvoiceNumber = increasedInvoiceFunc(INVOICE_NUMBER);
+            invoiceData["INVOICE_NUMBER"] = newInvoiceNumber;
+          }
+        }
+        let salesData = await strapi.db.query('api::sale.sale').findMany({
+          where:{
+            id:{
+              $in:sales
+            }
+          }
+        })
+        if(salesData.length){
+          let PROJECT = salesData[0]['PROJECT']
+          let isEqalSales = salesData.every(ele=>ele['PROJECT']===PROJECT)
+          if(!isEqalSales){
+            return ctx.send({
+              message:`invalid sales id provide a valid sale ids`
+          },400)
+          }
+          let totalAmount = salesData.reduce((a,b)=>a  + b.AMOUNT,0)
+          let perAmount = {};
+          if(invoiceData['HOST_BUSINESS_STATE'] === invoiceData['CLIENT_BILLING_STATE']){
+            perAmount = calculateTax(totalAmount,9,"sgst","cgst")
+          }else{
+            perAmount = calculateTax(totalAmount,18,"igst")
+          }
+          Object.keys(perAmount).forEach(ele=>{
+            invoiceData[ele] = perAmount[ele]
+          })
+        }
+        // console.log(invoiceData,"inco")
+        let newInvoice = await strapi
+        .service("api::invoice.invoice")
+        .create({ data: invoiceData });
+      // let newInvoice = []
+      let tempInvoice = newInvoice;
+      const sanitizedResults = await this.sanitizeOutput(tempInvoice, ctx);
+      return this.transformResponse(sanitizedResults);
+
+
+      }
 }));

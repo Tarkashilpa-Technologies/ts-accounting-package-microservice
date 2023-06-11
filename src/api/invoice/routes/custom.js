@@ -5,5 +5,10 @@ module.exports = {
         path: "/invoices/generatePdf",
         handler: "invoice.getInvoicePdf",
       },
+      {
+        method: "POST",
+        path: "/invoices/createInvoice",
+        handler: "invoice.createInvoice",
+      },
     ],
   };
