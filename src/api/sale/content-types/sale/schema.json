@@ -58,6 +58,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::currency.currency"
+    },
+    "SALE_START_DATE": {
+      "type": "date"
     }
   }
 }
