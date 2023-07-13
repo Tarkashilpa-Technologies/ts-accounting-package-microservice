@@ -116,6 +116,29 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::invoice-template.invoice-template"
+    },
+    "HOST_BUSINESS_ADDRESS": {
+      "type": "text"
+    },
+    "HOST_BUSINESS_CITY": {
+      "type": "string"
+    },
+    "HOST_BUSINESS_STATE": {
+      "type": "string"
+    },
+    "HOST_BUSINESS_COUNTRY": {
+      "type": "string"
+    },
+    "HOST_BUSINESS_PINCODE": {
+      "type": "string"
+    },
+    "LAST_REMINDER_SENT_DATE": {
+      "type": "datetime"
+    },
+    "HOST_BUSINESS_ACCOUNT": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::bank-account-entity.bank-account-entity"
     }
   }
 }

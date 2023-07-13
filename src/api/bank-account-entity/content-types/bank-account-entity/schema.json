@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bank_account_entities",
+  "info": {
+    "singularName": "bank-account-entity",
+    "pluralName": "bank-account-entities",
+    "displayName": "BANK_ACCOUNT_ENTITY"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "BUSINESS": {
+      "type": "string"
+    },
+    "ACCOUNT_NUMBER": {
+      "type": "string"
+    },
+    "ACCOUNT_HOLDER_NAME": {
+      "type": "string"
+    },
+    "BANK_NAME": {
+      "type": "string"
+    },
+    "ACCOUNT_TYPE": {
+      "type": "enumeration",
+      "enum": [
+        "CURRENT",
+        "SAVINGS"
+      ]
+    },
+    "CURRENT_BALANCE": {
+      "type": "decimal"
+    },
+    "IS_OFFICIAL_ACCOUNT": {
+      "type": "boolean"
+    },
+    "IS_DEFAULT": {
+      "type": "boolean"
+    }
+  }
+}
